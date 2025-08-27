@@ -1,1 +1,57 @@
 @import "tailwindcss";
+
+body {
+  margin: 0;  background-image: url('/ecommerce-bg.jpg');
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: aliceblue;
+  position: relative; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  
+
+  
+  z-index: -1;
+  pointer-events: none; 
+}
+
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;   
+}
+
+
+::-webkit-scrollbar {
+  width: 12px;             
+  height: 12px;            
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(1, 13, 43);    
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 195, 255, 0.6); 
+  border-radius: 10px;       
+  border: 3px solid transparent; 
+  background-clip: content-box; 
+}
+    
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 225, 255, 0.8); 
+}
