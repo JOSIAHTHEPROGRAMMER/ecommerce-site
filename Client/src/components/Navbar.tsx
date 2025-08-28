@@ -4,7 +4,8 @@ import Image from 'next/image'
 import SearchBar from './SearchBar'
 import { GoHome } from 'react-icons/go'
 import { CgBell } from 'react-icons/cg'
-import { CiShoppingCart } from 'react-icons/ci'
+
+import ShoppingCartIcon from './ShoppingCartIcon'
 
 
 
@@ -24,11 +25,11 @@ const Navbar = () => {
 
        <div className='flex items-center gap-6'>
          <SearchBar/>
-         <Link href="/cart" className=''>
+         <Link href="/" className=''>
           <GoHome className='text-2xl cursor-pointer hover:text-blue-500'/>
          </Link>
          <CgBell className='text-2xl hover:text-blue-500 cursor-pointer'/>
-         <CiShoppingCart  className='text-2xl cursor-pointer hover:text-blue-500 '/>
+         <ShoppingCartIcon/>
 
          <Link className='hover:text-blue-500' href="/login" >Sign Up</Link>
        </div>

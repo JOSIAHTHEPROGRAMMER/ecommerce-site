@@ -1,5 +1,6 @@
 "use client";
 
+import useCartStore from "@/stores/cartStore";
 import { ProductType } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,14 +8,23 @@ import { useState } from "react";
 import { FiShoppingCart } from "react-icons/fi";
 import { toast } from "react-toastify";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import 'react-toastify/dist/ReactToastify.css';
 
+
+
+
+ 
 
 
 const ProductCard = ({ product }: { product: ProductType }) => {
   const [productTypes, setProductTypes] = useState({
     size: product.sizes[0],
   });
+   
+  const { addToCart } = useCartStore();
 
+
+  
   const handleProductType = ({
     type,
     value,
@@ -28,10 +38,20 @@ const ProductCard = ({ product }: { product: ProductType }) => {
     }));
   };
  
+    const handleAddToCart = () => {
+    addToCart({
+      ...product,
+      quantity: 1,
+      selectedSize: productTypes.size,
+    });
+    toast.success("Product added to cart")
+    console.log("Added to cart:", { ...product, selectedSize: productTypes.size });
+  };
+
 
 
   return (
-    <CardContainer className="w-full height-full pb-10 cursor-pointer">
+    <CardContainer className="w-full height-full pb-20 cursor-pointer">
   
       <CardBody className="shadow-lg rounded-lg  flex flex-col gap-4 p-4">
         
@@ -118,6 +138,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
           <p className="font-medium">${product.price.toFixed(2)}</p>
 
           <button
+             onClick={handleAddToCart}
             className="ml-5 ring-1 ring-gray-200 shadow-lg rounded-md px-2 py-1 text-sm cursor-pointer hover:text-white hover:bg-black transition-all duration-300 flex items-center gap-2"
           >
             <FiShoppingCart className=" w-4 h-4" />

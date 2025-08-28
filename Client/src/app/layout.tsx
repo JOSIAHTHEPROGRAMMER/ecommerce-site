@@ -4,7 +4,10 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { BackgroundBeams } from "@/components/ui/background-beams";
-import { TracingBeam } from "@/components/ui/tracing-beam";
+
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+ 
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth  relative">
+    <html lang="en" data-scroll-behavior="smooth" className="scroll-smooth  relative">
      
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
@@ -43,7 +46,7 @@ export default function RootLayout({
           <Footer />
 
         </div>
-       
+       <ToastContainer />
         <BackgroundBeams />
       </body>
 
