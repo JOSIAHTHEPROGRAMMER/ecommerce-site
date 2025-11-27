@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+![Repo Size](https://img.shields.io/github/repo-size/JOSIAHTHEPROGRAMMER/ecommerce-site)  
+
 ## Getting Started
 
 First, run the development server:
